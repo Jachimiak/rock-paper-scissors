@@ -1,0 +1,53 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url("./images/Background_11.jpg");
+    background-color: rgba(255, 255, 255, 0.8);
+    background-blend-mode: lighten;
+    background-size: cover;
+    font-family: Roboto, sans-serif;
+    font-size: 1.1rem;
+}
+
+.body-wrap {
+    width: 80vw;
+    margin: 0 auto;
+    padding: 1em;
+    margin-top: 3em;
+    color: #1a323e;
+}
+
+h1 {
+    font-family: Bangers, sans-serif;
+    font-weight: 200;
+    font-size: 4rem;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    margin-top: 2em;
+    margin-bottom: 1em;
+}
+
+.intro p, .intro h2 {
+    display: flex;
+    width: 60vw;
+    justify-content: center;
+    margin-bottom: .5em;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+}
+
+.intro h2 {
+    margin-top: 1em;
+    font-family: Bangers, sans-serif;
+    font-weight: 100;
+    font-size: 2.5rem;
+}
+
