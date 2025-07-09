@@ -1,34 +1,62 @@
+// All Query Selections
+
+const buttons = document.querySelectorAll(".player-btn");
+const playerPaper = document.querySelector("#player-paper");
+const playerRock = document.querySelector("#player-rock");
+const playerScissor = document.querySelector("#player-scissors");
+
+// Define the score.
+
+let humanScore = 0;
+let computerScore = 0;
 
 // Get numbered choice for computer.
 
 function getComputerChoice() {
     let choice  = Math.floor((Math.random() * 3) + 1);
+    document.getElementById("center-rock-computer").style.display = "none";
+    document.getElementById("center-paper-computer").style.display = "none";
+    document.getElementById("center-scissors-computer").style.display = "none";
     switch (choice) {
         case 1:
             choice = "rock";
+            document.getElementById("center-rock-computer").style.display = "block";
             return choice;
         case 2:
             choice = "paper";
+            document.getElementById("center-paper-computer").style.display = "block";
             return choice;
         case 3:
             choice = "scissors";
+            document.getElementById("center-scissors-computer").style.display = "block";
             return choice;   
     }
 
 }
 
 // Get numbered choice for human.
-
-function getHumanChoice() {
-    let choice  = (prompt(`Please select Rock, Paper, or Scissors!`));
-    choice = choice.toLowerCase();
+function getHumanChoice(humselection) {
+    let choice = humselection
+    document.getElementById("center-rock-player").style.display = "none";
+    document.getElementById("center-paper-player").style.display = "none";
+    document.getElementById("center-scissors-player").style.display = "none";
+    document.getElementsByClassName("versus")[0].style.display = "none";
     switch (choice) {
-        case "rock":
-            return choice;
-        case "paper":
-            return choice;
-        case "scissors":
-            return choice;   
+        case "player-rock":
+            document.getElementById("center-rock-player").style.display = "block";
+            document.getElementsByClassName("versus")[0]
+                .style.display = "block";
+            return "rock";
+        case "player-paper":
+            document.getElementById("center-paper-player").style.display = "block";
+            document.getElementsByClassName("versus")[0]
+                .style.display = "block";
+            return "paper";
+        case "player-scissors":
+            document.getElementById("center-scissors-player").style.display = "block";
+            document.getElementsByClassName("versus")[0]
+                .style.display = "block";
+            return "scissors";   
     }
 }
 
@@ -68,36 +96,47 @@ function playRound (humanChoice, computerChoice) {
     }
 }
 
-    // Define the score.
 
-    let humanScore = 0;
-    let computerScore = 0;
 
     // Play the Game!
 
-function playGame() {
-    for (i = 0; i < 5; i++) {
-        let humanSelection = getHumanChoice();
+function playGame(humselect) {    
+        let x = humselect;
+        let humanSelection = getHumanChoice(x);
         let computerSelection = getComputerChoice();
         
         playRound(humanSelection, computerSelection);
 
         console.log(`The score is Human: ${humanScore} and Computer: ${computerScore}`);
-    }
     
-    if (humanScore > computerScore) {
+    
+/*     if (humanScore > computerScore) {
         console.log(`Wonderful work, you won ${humanScore} to ${computerScore}!`);
     } else if (humanScore < computerScore) {
         console.log(`I am sorry, the computer won ${computerScore} to ${humanScore}!`);
     } else {
         console.log(`Look at that, ${humanScore} to ${computerScore}, it's a tie!`)
-    }
+    } */
 }
 
 
-playGame();
+function scoreKeeping() {
+
+    /*     if (humanScore > computerScore) {
+        console.log(`Wonderful work, you won ${humanScore} to ${computerScore}!`);
+    } else if (humanScore < computerScore) {
+        console.log(`I am sorry, the computer won ${computerScore} to ${humanScore}!`);
+    } else {
+        console.log(`Look at that, ${humanScore} to ${computerScore}, it's a tie!`)
+    } */
+}
 
 
-
+buttons.forEach(btn => {
+            btn.addEventListener('click', event => {
+                console.log(event.target.id);
+                playGame(event.target.id);
+            });
+        }); 
 
 

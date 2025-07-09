@@ -76,7 +76,7 @@ h3 {
     flex: 12.5%;
 }
 
-.player-select div {
+.player-select button {
     flex: 33%;
 }
 
@@ -96,29 +96,68 @@ h3 {
 .fight {
     display: flex;
     flex-wrap: nowrap;
-    height: 50%;
+    height: 100%;
     gap: 10px;
     margin: 0 10px;
     flex: 70%;
-    align-self: center;
+    align-self: flex-start;
 }
 
 .fight div {
-
-    flex: 33%;
-
+    flex: 2 2 33%;
 }
 
 .fight .versus{
     flex: 10%;
-    align-content: center;
+    align-self: center;
+}
+
+.versus {
+    display: none;
 }
 
 img {
     width: 100%;
     object-fit: contain;
+    pointer-events: none;
 }
 
 .computer-choice-img, .player-choice-img {
     margin-top: 1em;
+}
+
+.hand-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+
+.computer-choice-img img, .player-choice-img img {
+    object-fit: contain;
+    padding: 2em;
+}
+
+#center-paper-computer {
+    display: none;
+}
+
+#center-rock-computer {
+    display: none;
+}
+
+#center-scissors-computer {
+    display: none;
+}
+
+#center-paper-player {
+    display: none;
+}
+
+#center-rock-player {
+    display: none;
+}
+
+#center-scissors-player {
+    display: none;
 }

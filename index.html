@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors - FIGHT!</title>
-    <!-- <script src="./javascript.js"></script> -->
+    <script src="./javascript.js" defer></script>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="body-wrap">
@@ -32,43 +32,55 @@
                 </div>
                 <div class="content-choices">
                     <div class="player-select">
-                        <div class="player paper">
-                            <img src="./images/general-img-square.png">
-                        </div>
-                        <div class="player rock">
-                            <img src="./images/general-img-square.png">
-                        </div>
-                        <div class="player scissors">
-                            <img src="./images/general-img-square.png">
-                        </div>
+                        <button type="button" id="player-paper" class="hand-button player-btn">
+                            <img src="./images/paper-player.png">
+                        </button>
+                        <button type="button" id="player-rock" class="hand-button player-btn">
+                            <img src="./images/rock-player.png">
+                        </button>
+                        <button type="button" id="player-scissors" class="hand-button player-btn">
+                            <img src="./images/scissors-player.png">
+                        </button>
                     </div>
                     <div class="fight">
                         <div class="player choice">
-
+                            <div><h3>Player</h3></div>
+                            <div class="player-choice-img">
+                                <img src="./images/paper-player.png" id="center-paper-player">
+                                <img src="./images/rock-player.png" id="center-rock-player">
+                                <img src="./images/scissors-player.png" id="center-scissors-player">
+                            </div>
                         </div>
                         <div class="versus">
                             <h3>VERSUS</h3>
                         </div>
                         <div class="computer choice">
-
+                            <div><h3>Computer</h3></div>
+                            <div class="computer-choice-img">
+                                <img src="./images/paper-comp.png" id="center-paper-computer">
+                                <img src="./images/rock-comp.png" id="center-rock-computer">
+                                <img src="./images/scissors-comp.png" id="center-scissors-computer">
+                            </div>
                         </div>
                     </div>
                     <div class="computer-select">
-                        <div class="computer paper">
-                            <img src="./images/general-img-square.png">
-                        </div>
-                        <div class="computer rock">
-                            <img src="./images/general-img-square.png">
-                        </div>
-                        <div class="computer scissors">
-                            <img src="./images/general-img-square.png">
-                        </div>
+
+                            <div class="computer-paper">
+                                <img src="./images/paper-comp.png">
+                            </div>
+
+                            <div class="computer-rock">
+                                <img src="./images/rock-comp.png">
+                            </div>
+
+                            <div class="computer-scissors">
+                                <img src="./images/scissors-comp.png">
+
                     </div>
                 </div>
             </div>
         </main>
     </div class="body-wrap">
-
 
 </body>
 </html>
