@@ -1,7 +1,11 @@
+
+
+
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+
 }
 
 body {
@@ -105,9 +109,7 @@ h3 {
     align-self: flex-start;
 }
 
-.fight div {
-    flex: 1 1 33%;
-}
+
 
 .fight .versus{
     flex: 10%;
@@ -127,42 +129,13 @@ img {
 
 .computer-choice-img, .player-choice-img {
     margin-top: 1em;
+    padding: 3em;
 }
 
 .hand-button {
     background: none;
     border: none;
     cursor: pointer;
-}
-
-
-.computer-choice-img img, .player-choice-img img {
-    object-fit: contain;
-    padding: 3em;
-}
-
-#center-paper-computer {
-    display: none;
-}
-
-#center-rock-computer {
-    display: none;
-}
-
-#center-scissors-computer {
-    display: none;
-}
-
-#center-paper-player {
-    display: none;
-}
-
-#center-rock-player {
-    display: none;
-}
-
-#center-scissors-player {
-    display: none;
 }
 
 .score {
@@ -193,4 +166,24 @@ img {
 
 #computer-won {
     display: none;
+}
+
+#playAgainButton {
+    display: none;
+    background-color: #04AA6D; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 0 auto;
+    transition-duration: 0.4s;
+
+}
+
+#playAgainButton:hover {
+  background-color: white; /* Green */
+  color: #04AA6D;
+  border: 1px solid #04AA6D
 }

@@ -6,6 +6,7 @@ const playerRock = document.querySelector("#player-rock");
 const playerScissor = document.querySelector("#player-scissors");
 const playerScore = document.querySelector("#player-score");
 const compScore = document.querySelector("#comp-score");
+const playAgainButton = document.getElementById('playAgainButton');
 
 // Define the score.
 
@@ -16,21 +17,15 @@ let computerScore = 0;
 
 function getComputerChoice() {
     let choice  = Math.floor((Math.random() * 3) + 1);
-    document.getElementById("center-rock-computer").style.display = "none";
-    document.getElementById("center-paper-computer").style.display = "none";
-    document.getElementById("center-scissors-computer").style.display = "none";
     switch (choice) {
         case 1:
             choice = "rock";
-            document.getElementById("center-rock-computer").style.display = "block";
             return choice;
         case 2:
             choice = "paper";
-            document.getElementById("center-paper-computer").style.display = "block";
             return choice;
         case 3:
             choice = "scissors";
-            document.getElementById("center-scissors-computer").style.display = "block";
             return choice;   
     }
 
@@ -39,23 +34,17 @@ function getComputerChoice() {
 // Get numbered choice for human.
 function getHumanChoice(humselection) {
     let choice = humselection
-    document.getElementById("center-rock-player").style.display = "none";
-    document.getElementById("center-paper-player").style.display = "none";
-    document.getElementById("center-scissors-player").style.display = "none";
     document.getElementsByClassName("versus")[0].style.display = "none";
     switch (choice) {
         case "player-rock":
-            document.getElementById("center-rock-player").style.display = "block";
             document.getElementsByClassName("versus")[0]
                 .style.display = "block";
             return "rock";
         case "player-paper":
-            document.getElementById("center-paper-player").style.display = "block";
             document.getElementsByClassName("versus")[0]
                 .style.display = "block";
             return "paper";
         case "player-scissors":
-            document.getElementById("center-scissors-player").style.display = "block";
             document.getElementsByClassName("versus")[0]
                 .style.display = "block";
             return "scissors";   
@@ -67,33 +56,51 @@ function getHumanChoice(humselection) {
 function playRound (humanChoice, computerChoice) {
     if (humanChoice === "rock") {
         if (computerChoice === "scissors") {
-            console.log("You win! Rock beats Paper!");
+            // console.log("You win! Rock beats Paper!");
+            document.getElementById("center-player-choice").src="./images/rock-player-green.png";
+            document.getElementById("center-comp-choice").src="./images/scissors-comp-red.png";
             humanScore += 1;
         } else if (computerChoice === "paper") {
-            console.log("You lose! Paper beats Rock!");
+            // console.log("You lose! Paper beats Rock!");
+            document.getElementById("center-player-choice").src="./images/rock-player-red.png";
+            document.getElementById("center-comp-choice").src="./images/paper-comp-green.png";
             computerScore += 1;
         } else {
-            console.log("A tie! A rock is a rock!");
+            document.getElementById("center-player-choice").src="./images/rock-player.png";
+            document.getElementById("center-comp-choice").src="./images/rock-comp.png";
+            // console.log("A tie! A rock is a rock!");
         }
     } else if (humanChoice ==="paper") {
         if (computerChoice === "rock") {
             console.log("You win! Paper beats Rock!");
+            document.getElementById("center-player-choice").src="./images/paper-player-green.png";
+            document.getElementById("center-comp-choice").src="./images/rock-comp-red.png";
             humanScore += 1;
         } else if (computerChoice === "scissors") {
             console.log("You lose! Scissor beats Paper!");
+            document.getElementById("center-player-choice").src="./images/paper-player-red.png";
+            document.getElementById("center-comp-choice").src="./images/scissors-comp-green.png";
             computerScore += 1;
         } else {
             console.log("A tie! Paper is paper!");
+            document.getElementById("center-player-choice").src="./images/paper-player.png";
+            document.getElementById("center-comp-choice").src="./images/paper-comp.png";
         }
     } else {
         if (computerChoice === "paper") {
             console.log("You win! Scissors beats Paper!");
+            document.getElementById("center-player-choice").src="./images/scissors-player-green.png";
+            document.getElementById("center-comp-choice").src="./images/paper-comp-red.png";
             humanScore += 1;
         } else if (computerChoice === "rock") {
             console.log("You lose! Rock beats Scissors!");
+            document.getElementById("center-player-choice").src="./images/scissors-player-red.png";
+            document.getElementById("center-comp-choice").src="./images/rock-comp-green.png";
             computerScore += 1;
         } else {
             console.log("A tie! Scissors are Scissors!");
+            document.getElementById("center-player-choice").src="./images/scissors-player.png";
+            document.getElementById("center-comp-choice").src="./images/scissors-comp.png";
         }
     }
 }
@@ -107,6 +114,7 @@ function playGame(humselect) {
         
         playRound(humanSelection, computerSelection);
         
+        
         if (humanScore < 5 && computerScore < 5 ) {
             document.getElementById("player-score").textContent = humanScore;
             document.getElementById("comp-score").textContent = computerScore;
@@ -117,6 +125,7 @@ function playGame(humselect) {
             document.getElementById("player-rock").disabled = true;
             document.getElementById("player-scissors").disabled = true;
             document.getElementById("player-paper").disabled = true;
+            playAgainButton.style.display = 'block';
         } else {
             document.getElementById("player-score").textContent = humanScore;
             document.getElementById("comp-score").textContent = computerScore;
@@ -124,6 +133,7 @@ function playGame(humselect) {
             document.getElementById("player-rock").disabled = true;
             document.getElementById("player-scissors").disabled = true;
             document.getElementById("player-paper").disabled = true;
+            playAgainButton.style.display = 'block';
         }
     
     
@@ -144,4 +154,23 @@ buttons.forEach(btn => {
             });
         }); 
 
+
+function resetGame() {
+        // Reset game variables
+        humanScore = 0;
+        computerScore = 0;
+        // Reset starting choice images
+        document.getElementById("center-player-choice").src="./images/question.png";
+        document.getElementById("center-comp-choice").src="./images/question.png";
+        document.getElementById("player-won").style.display = "none";
+        document.getElementById("computer-won").style.display = "none";
+        document.getElementById("player-score").textContent = humanScore;
+        document.getElementById("comp-score").textContent = computerScore;
+        document.getElementById("player-rock").disabled = false;
+        document.getElementById("player-scissors").disabled = false;
+        document.getElementById("player-paper").disabled = false;
+        playAgainButton.style.display = 'none';
+    }
+
+    playAgainButton.addEventListener('click', resetGame);
 
