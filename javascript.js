@@ -4,6 +4,8 @@ const buttons = document.querySelectorAll(".player-btn");
 const playerPaper = document.querySelector("#player-paper");
 const playerRock = document.querySelector("#player-rock");
 const playerScissor = document.querySelector("#player-scissors");
+const playerScore = document.querySelector("#player-score");
+const compScore = document.querySelector("#comp-score");
 
 // Define the score.
 
@@ -96,8 +98,6 @@ function playRound (humanChoice, computerChoice) {
     }
 }
 
-
-
     // Play the Game!
 
 function playGame(humselect) {    
@@ -106,23 +106,28 @@ function playGame(humselect) {
         let computerSelection = getComputerChoice();
         
         playRound(humanSelection, computerSelection);
-
-        console.log(`The score is Human: ${humanScore} and Computer: ${computerScore}`);
+        
+        if (humanScore < 5 && computerScore < 5 ) {
+            document.getElementById("player-score").textContent = humanScore;
+            document.getElementById("comp-score").textContent = computerScore;
+        } else if (humanScore === 5) {
+            document.getElementById("player-score").textContent = humanScore;
+            document.getElementById("comp-score").textContent = computerScore;
+            document.getElementById("player-won").style.display = "block";
+            document.getElementById("player-rock").disabled = true;
+            document.getElementById("player-scissors").disabled = true;
+            document.getElementById("player-paper").disabled = true;
+        } else {
+            document.getElementById("player-score").textContent = humanScore;
+            document.getElementById("comp-score").textContent = computerScore;
+            document.getElementById("computer-won").style.display = "block";
+            document.getElementById("player-rock").disabled = true;
+            document.getElementById("player-scissors").disabled = true;
+            document.getElementById("player-paper").disabled = true;
+        }
     
     
 /*     if (humanScore > computerScore) {
-        console.log(`Wonderful work, you won ${humanScore} to ${computerScore}!`);
-    } else if (humanScore < computerScore) {
-        console.log(`I am sorry, the computer won ${computerScore} to ${humanScore}!`);
-    } else {
-        console.log(`Look at that, ${humanScore} to ${computerScore}, it's a tie!`)
-    } */
-}
-
-
-function scoreKeeping() {
-
-    /*     if (humanScore > computerScore) {
         console.log(`Wonderful work, you won ${humanScore} to ${computerScore}!`);
     } else if (humanScore < computerScore) {
         console.log(`I am sorry, the computer won ${computerScore} to ${humanScore}!`);
